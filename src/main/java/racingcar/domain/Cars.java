@@ -8,12 +8,11 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Cars {
-    private static int CAR_MIN_NUMBER = 2;
-    private static List<Car> cars;
+    private final static int CAR_MIN_NUMBER = 2;
+    private final List<Car> cars = new ArrayList<>();
     private int maxPosition = 0;
 
     public Cars(String[] names) {
-        cars = new ArrayList<>();
         for (String name : names) {
             Car car = new Car(name, new RandomNumberRule());
             isDuplicate(car);
