@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class Cars {
     private final static int CAR_MIN_NUMBER = 2;
-    private final List<Car> cars = new ArrayList<>();
+    private List<Car> cars = new ArrayList<>();
     private int maxPosition = 0;
 
     public Cars(String[] names) {
