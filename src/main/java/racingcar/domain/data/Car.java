@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class Car {
     private final Name name;
-    private static RandomNumberRuleStrategy rule;
+    private RandomNumberRuleStrategy rule;
     private Position position;
 
     public Car(final String name, final RandomNumberRuleStrategy randomNumberRule) {
