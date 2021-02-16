@@ -7,7 +7,6 @@ import racingcar.utils.exception.InvalidTextException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static racingcar.domain.data.Name.validateName;
 
 class NameTest {
     int maxLength = 5;
@@ -21,13 +20,15 @@ class NameTest {
     @ParameterizedTest
     @ValueSource(strings = {"pobi", "brown"})
     public void 정상_입력_시(String name) {
-        validateName(name, maxLength);
+        assertThat(new Name(name))
+                .getClass()
+                .equals(Name.class);
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"pobi#", "bro."})
     public void 문자_외의_입력_시_예외처리(String name) {
-        assertThatThrownBy(() -> validateName(name, maxLength))
+        assertThatThrownBy(() -> new Name(name))
                 .isInstanceOf(InvalidTextException.class);
     }
 }
